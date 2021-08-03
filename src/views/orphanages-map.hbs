@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localize um orfanato | Happy</title>
+    <link rel="icon" href="/img/logo-icon.png">
+    
+    <!-- leaflet amp -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+    <!-- end leaflet map -->
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/page-orphanages-map.css">
+    <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body>
+    <div id="page-orphanages-map">
+        <aside class="animate-right">
+            <header>
+                <img src="/img/map-marker.svg" alt="Happy" id="logo-header">
+                <h2>Escolha um orfanato no mapa</h2>
+                <p>Muitas crianças estão esperando a sua visita :)</p>
+            </header>
+            <footer>
+                <strong>Planaltina</strong>
+                <p>Distrito Federal</p>
+            </footer>
+        </aside>
+        <div id="mapid" class="animate-appear"></div>
+        <div id="orphanage_db">
+            {{#each orphanage_db}}
+            <span hidden
+                data-id="{{this.id}}"
+                data-name="{{this.name}}"
+                data-latitude="{{this.latitude}}"
+                data-longitude="{{this.longitude}}"
+            >
+            </span>
+            {{/each}}
+        </div>
+        <a href="/add-orphanage" class="create-orphanage" title="Cadastre um orfanato">
+            <img src="/img/plus.svg" alt="Criar orfanato">
+        </a>
+    </div>
+    <script src="/scripts/page-orphanages-map.js"></script>
+</body>
+</html>
